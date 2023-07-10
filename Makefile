@@ -1,6 +1,15 @@
-export DEBUG = 0
-export ARCHS = arm64 arm64e
-export TARGET = iphone:clang:latest:12.0
+DEBUG = 0
+FINALPACKAGE = 1
+
+ARCHS = arm64 arm64e
+
+ifeq ($(THEOS_PACKAGE_SCHEME),rootless)
+TARGET = iphone:16.2:15.0
+else
+TARGET = iphone:14.5:12.0
+endif
+
+THEOS_DEVICE_IP = 192.168.0.11
 
 INSTALL_TARGET_PROCESSES = SpringBoard
 
